@@ -57,13 +57,28 @@ function handleWelcomeBtnClick(btn) {
             btn.style.boxShadow = "0 0 20px 10px rgba(255, 77, 109, 0.6)";
             btn.style.transform = "scale(1.1)";
         } else {
-            let maxW = window.innerWidth - btn.offsetWidth - 40;
-            let maxH = window.innerHeight - btn.offsetHeight - 40;
+            let container = btn.parentElement;
+            let containerW = container.clientWidth;
+            let containerH = container.clientHeight;
             
-            let newX = Math.floor(Math.random() * maxW) + 20;
-            let newY = Math.floor(Math.random() * maxH) + 20;
+            let btnW = btn.offsetWidth;
+            let btnH = btn.offsetHeight;
 
-            btn.style.position = "fixed";
+            // Restrict bounds securely strictly inside parent container
+            let padding = 20;
+            let minX = padding;
+            let maxX = containerW - btnW - padding;
+            let minY = padding;
+            let maxY = containerH - btnH - padding;
+
+            // Fallback limits just to be perfectly safe
+            maxX = Math.max(minX, maxX);
+            maxY = Math.max(minY, maxY);
+
+            let newX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+            let newY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
+
+            btn.style.position = "absolute";
             btn.style.left = newX + "px";
             btn.style.top = newY + "px";
             

@@ -705,3 +705,31 @@ h2 {
     0% { opacity: 1; transform: translateY(0) scale(1); }
     100% { opacity: 0; transform: translateY(-50px) scale(1.5); }
 }
+
+/* Strict safe container bounds for Welcome Card button interactions */
+#page-welcome .content.glass-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+/* Subtle Developer Credit */
+.developer-credit {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    font-family: var(--font-main);
+    color: var(--text-color);
+    opacity: 0.5;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 100;
+    pointer-events: auto;
+    cursor: default;
+}
+
+.developer-credit:hover {
+    opacity: 0.9;
+    transform: translateX(-50%) scale(1.05);
+}
