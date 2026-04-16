@@ -716,7 +716,7 @@ h2 {
 /* Subtle Developer Credit */
 .developer-credit {
     position: absolute;
-    bottom: 20px;
+    bottom: 150px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 0.9rem;
@@ -732,4 +732,22 @@ h2 {
 .developer-credit:hover {
     opacity: 0.9;
     transform: translateX(-50%) scale(1.05);
+}
+
+/* Date Emphasizers */
+.feature-date {
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    letter-spacing: 3px;
+    font-weight: 500;
+    opacity: 0.85;
+}
+
+.celeb-date {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(255, 77, 109, 0.3);
 }
