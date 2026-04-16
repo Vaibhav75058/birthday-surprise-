@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Nimmy ❤️</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Pacifico&family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Background Floating Hearts Container -->
+    <div id="hearts-container"></div>
+
+    <!-- Page 1: Welcome -->
+    <section id="page-welcome" class="page active">
+        <div class="content glass-card">
+            <h1 class="bounce-in">Hey Nimmy ❤️<br><span>Something Special Awaits...</span></h1>
+            <button id="welcome-btn" class="btn pulse" onclick="handleWelcomeBtnClick(this)">Click Me 🎁</button>
+        </div>
+    </section>
+
+    <!-- Page 2: Memories -->
+    <section id="page-memories" class="page">
+        <div class="content">
+            <h2>You Beautiful ✨</h2>
+            <h4>Scroll down</h4>
+            <div class="gallery">
+                 <div class="gallery-item" onclick="openMemoryModal('Heart melting smile ✨')">
+                    <img src="assets/WhatsApp Image 2026-04-16 at 5.33.03 PM.jpeg" alt="Nimmy Memory">
+                    <p class="caption">Click me! 💖</p>
+                </div>
+                <div class="gallery-item" onclick="openMemoryModal('Love this vibe so much 🤍')">
+                    <img src="assets/WhatsApp Image 2026-04-16 at 5.33.03 PM (1).jpeg" alt="Nimmy Memory">
+                    <p class="caption">Click me! 🥰</p>
+                </div>
+                <div class="gallery-item" onclick="openMemoryModal('You look so beautiful here 💖')">
+                    <img src="assets/WhatsApp Image 2026-04-16 at 5.29.43 PM (1).jpeg" alt="Nimmy Memory">
+                    <p class="caption">Click me! 🎉</p>
+                </div>
+                <div class="gallery-item" onclick="openMemoryModal('My absolute favorite moment 💕')">
+                    <img src="assets/WhatsApp Image 2026-04-16 at 5.29.44 PM.jpeg" alt="Nimmy Memory">
+                    <p class="caption">Click me! 🌸</p>
+                </div>
+                <div class="gallery-item" onclick="openMemoryModal('Look at those cute eyes! 👀')">
+                    <img src="assets/WhatsApp Image 2026-04-16 at 5.29.44 PM (1).jpeg" alt="Nimmy Memory">
+                    <p class="caption">Click me! ❤️</p>
+                </div>
+                <div class="gallery-item" onclick="openMemoryModal('Always shining so bright ☀️')">
+                    <img src="assets/WhatsApp Image 2026-04-16 at 5.29.44 PM (2).jpeg" alt="Nimmy Memory">
+                    <p class="caption">Click me! 💫</p>
+                </div>
+                <div class="gallery-item" onclick="openMemoryModal('Can\'t get enough of this pic 😘')">
+                    <img src="assets/WhatsApp Image 2026-04-16 at 5.29.45 PM.jpeg" alt="Nimmy Memory">
+                    <p class="caption">Click me! 🌻</p>
+                </div>
+                <div class="gallery-item" onclick="openMemoryModal('You are literal perfection 🌹')">
+                    <img src="assets/WhatsApp Image 2026-04-16 at 5.29.45 PM (1).jpeg" alt="Nimmy Memory">
+                    <p class="caption">Click me! 🎀</p>
+                </div>
+                <!-- New additions -->
+               
+            </div>
+            <button class="btn" onclick="goToPage('page-message')">Next 👉</button>
+        </div>
+    </section>
+
+    <!-- Modal for Memories -->
+    <div id="memory-modal" class="modal" onclick="closeMemoryModal()">
+        <div class="modal-content glass-card" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeMemoryModal()">&times;</span>
+            <p id="modal-text"></p>
+        </div>
+    </div>
+
+    <!-- Page 3: Message Page -->
+    <section id="page-message" class="page">
+        <div class="content glass-card message-box fade-in-section">
+            <h2 class="message-title">A Special Message for You 💕</h2>
+            <div class="message-body">
+                <p>My little one ❤️,</p>
+                <p>On this beautiful day, I just want you to know how special you are to me. Watching you grow has been one of the most beautiful parts of my life. From your tiny steps to your big dreams today — I have seen it all, and I feel so proud of you.</p>
+                <p>You are not just my sister, you are my little piece of heart, my forever friend, and sometimes even my strength. Your smile can brighten even my worst days, and your innocence reminds me how beautiful life truly is.</p>
+                <p>I know I don’t always say it, but I will always be there for you — to protect you, guide you, and stand beside you no matter what. No matter how big you grow, you will always be my little sister 💖</p>
+                <p>Keep shining, keep dreaming, and never forget how amazing you are.</p>
+                <br>
+                <p>Happy Birthday, my little princess 🎂💕</p>
+                <p class="signature">With all my love,<br>Your Didi 💫</p>
+            </div>
+            
+            <div class="small-hearts-container">
+                <span class="small-heart">💖</span>
+                <span class="small-heart">💕</span>
+                <span class="small-heart">💗</span>
+            </div>
+
+            <div class="action-container" id="message-next-btn" style="margin-top: 2rem;">
+                <button class="btn" onclick="goToPage('page-fun')">More Magic ✨</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 4: Fun Page -->
+    <section id="page-fun" class="page">
+        <div class="content" style="position: relative; z-index: 10;">
+            <h2>Let's Have Some Fun! 🎉</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 10px;">Click anywhere to pop balloons 🎈</p>
+            <div id="balloon-score" style="font-size: 1.5rem; color: var(--accent-color); font-weight: bold; margin-bottom: 20px;">Score: 0</div>
+            <div style="margin: 2rem 0;">
+                <button class="btn surprise-btn" onclick="showRandomSurprise()">Multiple Click for Surprise 😍</button>
+                <div id="surprise-text" class="cute-text hidden"></div>
+            </div>
+            <p style="font-size: 1.3rem; margin-bottom: 15px; color: var(--primary-color);">Final surprise is waiting... ❤️</p>
+            <button class="btn" onclick="goToPage('page-final')">Ready for something special?</button>
+        </div>
+    </section>
+
+    <!-- Page 5: Final Birthday Page -->
+    <section id="page-final" class="page">
+        <div class="content final-content">
+            <h2 class="final-instruction highlight">Tap on the candles to blow them 🎂</h2>
+            <div class="cake-container cake-interactive">
+                <img src="assets/pink_cake.png" alt="Birthday Cake" class="cake-img">
+                
+                <!-- 5 Interactive Candles -->
+                <div class="candle" style="top: 20%; left: 35%;" onclick="blowThisCandle(this)">
+                    <div class="flame"></div>
+                </div>
+                <div class="candle" style="top: 15%; left: 45%;" onclick="blowThisCandle(this)">
+                    <div class="flame"></div>
+                </div>
+                <div class="candle" style="top: 15%; left: 55%;" onclick="blowThisCandle(this)">
+                    <div class="flame"></div>
+                </div>
+                <div class="candle" style="top: 20%; left: 65%;" onclick="blowThisCandle(this)">
+                    <div class="flame"></div>
+                </div>
+                <div class="candle" style="top: 25%; left: 50%;" onclick="blowThisCandle(this)">
+                    <div class="flame"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Celebration Popup -->
+        <div id="celebration-popup" class="celebration-popup hidden">
+            <div class="glass-card celeb-card bounce-in">
+                <h1>Happy Birthday Nimmy ❤️</h1>
+                <p class="celeb-text">You are not just special… you are everything 💕</p>
+                <div style="margin-top: 20px;">
+                    <span class="small-heart">💖</span>
+                    <span class="small-heart">🎈</span>
+                    <span class="small-heart">🎊</span>
+                </div>
+                <button class="btn pulse" style="margin-top: 30px;" onclick="alert('Now get lost Zayada chep nahi hone ka....😒')">One Last Secret 💌</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="flash-screen" class="flash-screen hidden"></div>
+
+    <audio id="bgm" src="assets/hbd.mpeg" loop preload="auto"></audio>
+    <audio id="blow-sound" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
